@@ -2,7 +2,7 @@
 	namespace Module\Whoops;
 
 	$moduleDir = $_SERVER['DOCUMENT_ROOT'] . '/app/modules/whoops';
-	set_include_path(get_include_path().PATH_SEPARATOR.$moduleDir);
+	set_include_path(get_include_path() . PATH_SEPARATOR . $moduleDir);
 	spl_autoload_register();
 
 	$whoops = new \Whoops\Run;
