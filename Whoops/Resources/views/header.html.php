@@ -21,7 +21,7 @@
 
     <ul class="search-for-help">
       <li>
-        <a target="_blank" href="https://google.com/search?q=<?php echo urlencode(implode('\\', $name).' '.$message) ?>" title="Search for help on Google.">
+        <a target="_blank" href="https://google.com/search?q=<?php echo urlencode($message) ?>" title="Search for help on Google.">
           <!-- Google icon by Alfredo H, from https://www.iconfinder.com/alfredoh -->
           <!-- Creative Commons (Attribution 3.0 Unported) -->
           <!-- http://creativecommons.org/licenses/by/3.0/ -->
@@ -31,7 +31,7 @@
         </a>
       </li>
       <li>
-        <a target="_blank" href="https://stackoverflow.com/search?q=<?php echo urlencode(implode('\\', $name).' '.$message) ?>" title="Search for help on Stack Overflow.">
+        <a target="_blank" href="https://stackoverflow.com/search?q=<?php echo urlencode($message) ?>" title="Search for help on Stack Overflow.">
           <!-- Stack Overflow icon by Picons.me, from https://www.iconfinder.com/Picons -->
           <!-- Free for commercial use -->
           <svg class="stackoverflow" height="16" viewBox="-1163 1657.697 56.693 56.693" width="16" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +43,7 @@
     </ul>
 
     <span id="plain-exception"><?php echo $tpl->escape($plain_exception) ?></span>
-    <button id="copy-button" class="clipboard" data-clipboard-text="<?php echo $tpl->escape($plain_exception) ?>" title="Copy exception details to clipboard">
+    <button id="copy-button" class="clipboard" data-clipboard-text="<?php echo $tpl->escape($message) ?>" title="Copy exception details to clipboard">
       COPY
     </button>
   </div>
