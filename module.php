@@ -1,10 +1,10 @@
 <?php
 	namespace Module\Whoops;
 
-	$moduleDir = $_SERVER['DOCUMENT_ROOT'] . '/app/modules/whoops';
+	$moduleDir = $_SERVER['DOCUMENT_ROOT'] . '/app/modules/whoops/vendor';
 	set_include_path(get_include_path() . PATH_SEPARATOR . $moduleDir);
 	spl_autoload_register();
 
-	$whoops = new \Whoops\Run;
+	$whoops = new \Whoops\Run();
 	$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 	$whoops->register();
