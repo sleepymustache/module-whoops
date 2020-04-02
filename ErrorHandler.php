@@ -55,7 +55,7 @@ class ErrorHander extends Module
     public function install()
     {
         Loader::addNamespace(
-            "Whoops", $_SERVER['DOCUMENT_ROOT'] . '\app\module\whoops\vendor\Whoops'
+            "Whoops", $_SERVER['DOCUMENT_ROOT'] . '/app/module/whoops/vendor/Whoops'
         );
 
         $whoops = new \Whoops\Run();
