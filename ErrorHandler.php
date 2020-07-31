@@ -39,7 +39,7 @@ class ErrorHandler extends Module
     public function __construct() {
         $this->environments['dev']   = true;
         $this->environments['stage'] = false;
-        $this->environments['love']  = false;
+        $this->environments['live']  = false;
 
         parent::__construct();
     }
