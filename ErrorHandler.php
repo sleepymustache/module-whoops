@@ -19,6 +19,7 @@ namespace Module\Whoops;
 use \Sleepy\Core\Loader;
 use \Sleepy\Core\Hook;
 use \Sleepy\Core\Module;
+use \Sleepy\Core\SM;
 
 /**
  * Whoops Module Class
@@ -29,22 +30,18 @@ use \Sleepy\Core\Module;
  * @license  http://opensource.org/licenses/MIT; MIT
  * @link     https://sleepymustache.com
  */
-class ErrorHander extends Module
+class ErrorHandler extends Module
 {
     public $hooks = [
-        'errorhandler_preprocess' => 'setup',
         'sleepy_preprocess'       => 'install'
     ];
 
-    /**
-     * Setup the environments
-     *
-     * @return void
-     */
-    public function setup()
-    {
+    public function __construct() {
+        $this->environments['dev']   = true;
         $this->environments['stage'] = false;
-        $this->environments['live']  = false;
+        $this->environments['love']  = false;
+
+        parent::__construct();
     }
 
     /**
@@ -55,13 +52,13 @@ class ErrorHander extends Module
     public function install()
     {
         Loader::addNamespace(
-            "Whoops", $_SERVER['DOCUMENT_ROOT'] . '/app/module/whoops/vendor/Whoops'
+            "Whoops", $_SERVER['DOCUMENT_ROOT'] . '/app/modules/whoops/vendor/Whoops'
         );
-
+            
         $whoops = new \Whoops\Run();
         $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
         $whoops->register();
     }
 }
 
-Hook::register(new ErrorHander());
+Hook::register(new ErrorHandler());

@@ -361,7 +361,7 @@ final class Run implements RunInterface
         return false;
     }
 
-    /**
+    /** 
      * Special case to deal with Fatal errors and the like.
      */
     public function handleShutdown()
